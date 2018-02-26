@@ -2,7 +2,7 @@
 
 Небольшой сервер на Node.js для тестирования отправленных форм.
 
-Адрес отправки - https://form-sandbox.herokuapp.com/
+Адрес отправки - https://form-sandbox.herokuapp.com/  
 Ответ - в виде json, например:
 ```json
 {
@@ -17,7 +17,7 @@
     "x-forwarded-proto": "https",
     "x-forwarded-port": "443",
     "x-region": "eu",
-    "x-forwarded-for": "46.147.62.66",
+    "x-forwarded-for": "0.0.0.0",
     "connection": "keep-alive"
   },
   "parsedUrl": {},
