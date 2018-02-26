@@ -78,6 +78,4 @@ server
   .on('request', onRequest)
   .on('error', onError)
   .on('listening', onListening)
-  .listen(config.PORT, config.HOSTNAME, () => {
-    console.log(`Server is running on http://${config.HOSTNAME}:${config.PORT}`)
-  });
+  .listen(config.PORT);
