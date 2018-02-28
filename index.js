@@ -18,12 +18,12 @@ function parseUrl(reqUrl) {
 function parseBody(req, cb) {
   let body = [];
   req
-    .on('error', console.error)
+    .on('error', (err) => cb(err))
     .on('data', chunk => body.push(chunk))
     .on('end', () => {
       body = Buffer.concat(body).toString();
       const data = qs.parse(body);
-      cb(data);
+      cb(null, data);
     })
 };
 
@@ -32,7 +32,10 @@ function onRequest(req, res) {
   
   const parsedUrl = parseUrl(url, true);
   
-  parseBody(req, (parsedBody) => {
+  parseBody(req, (err, parsedBody) => {
+    if (err) {
+      return console.error(err);
+    };
     res.on('error', console.error);
     sendData(res, {
       method,
