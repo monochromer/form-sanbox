@@ -7,7 +7,10 @@ const config = require('./config');
 const server = new Server();
 
 function sendData(res, data) {
-  res.writeHead(200, { 'Content-Type': 'application/json' });
+  res.writeHead(200, {
+    'Content-Type': 'application/json',
+    'Access-Control-Allow-Origin': '*'
+  });
   res.end(JSON.stringify(data, null, 2))
 };
 
