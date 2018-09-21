@@ -33,7 +33,7 @@ function parseBody(req, cb) {
 function onRequest(req, res) {
   const { url, method, headers } = req;
   
-  const parsedUrl = parseUrl(url, true);
+  const parsedUrl = parseUrl(url);
   
   parseBody(req, (err, parsedBody) => {
     if (err) {
