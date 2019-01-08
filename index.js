@@ -37,7 +37,8 @@ function onRequest(req, res) {
   
   parseBody(req, (err, parsedBody) => {
     if (err) {
-      return console.error(err);
+      console.error(err)
+      return sendData(res, err);
     };
     res.on('error', console.error);
     sendData(res, {
