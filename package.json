@@ -1,11 +1,8 @@
 {
   "name": "form-sandbox",
-  "version": "0.0.1",
+  "private": true,
   "scripts": {
     "start": "node index.js",
-    "dev": "nodemon index.js"
-  },
-  "devDependencies": {
-    "nodemon": "^1.15.1"
+    "dev": "npx nodemon index.js"
   }
 }
