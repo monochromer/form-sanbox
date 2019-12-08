@@ -6,8 +6,8 @@ const config = require('./config');
 
 const server = new Server();
 
-function sendData(res, data) {
-  res.writeHead(200, {
+function sendData(res, data, statusCode) {
+  res.writeHead(statusCode, {
     'Content-Type': 'application/json',
     'Access-Control-Allow-Origin': '*'
   });
@@ -32,13 +32,13 @@ function parseBody(req, cb) {
 
 function onRequest(req, res) {
   const { url, method, headers } = req;
-  
+
   const parsedUrl = parseUrl(url);
-  
+
   parseBody(req, (err, parsedBody) => {
     if (err) {
       console.error(err)
-      return sendData(res, err);
+      return sendData(res, err, 500);
     };
     res.on('error', console.error);
     sendData(res, {
@@ -46,7 +46,7 @@ function onRequest(req, res) {
       headers,
       parsedUrl,
       parsedBody
-    });
+    }, 200);
   });
 }
 
