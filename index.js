@@ -9,7 +9,9 @@ const server = new Server();
 function sendData(res, data, statusCode) {
   res.writeHead(statusCode, {
     'Content-Type': 'application/json',
-    'Access-Control-Allow-Origin': '*'
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Headers': '*',
+    'Access-Control-Allow-Methods': '*'
   });
   res.end(JSON.stringify(data, null, 2))
 };
